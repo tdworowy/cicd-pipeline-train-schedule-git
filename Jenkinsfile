@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clear workspace') {
             steps {
-                cleanWs(patterns: [[pattern: 'dist/*', type: 'INCLUDE']])
+                cleanWs(patterns: [[pattern: 'cicd-pipeline-train-schedule-git/dist/*', type: 'INCLUDE']])
             }
         }
         tage('Checkout') {
@@ -16,9 +16,11 @@ pipeline {
         }    
         stage('Build') {
             steps {
-                echo 'Running build automation'
-                sh './gradlew build --no-daemon'
-                archiveArtifacts artifacts: 'dist/*.zip'
+                dir("cicd-pipeline-train-schedule-git") {
+                    echo 'Running build automation'
+                    sh './gradlew build --no-daemon'
+                    archiveArtifacts artifacts: 'dist/*.zip'
+                }
             }
         }
     }
