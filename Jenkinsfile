@@ -13,8 +13,8 @@ pipeline {
                   sh './gradlew build --no-daemon'
                   archiveArtifacts artifacts: 'dist/*.zip'
                 }
-            }
- stage('DeployToStaging') {
+        }
+        stage('DeployToStaging') {
             when {
                 branch 'master'
             }
