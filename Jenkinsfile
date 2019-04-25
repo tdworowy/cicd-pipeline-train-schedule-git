@@ -11,7 +11,7 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, 
                           extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], 
-                          userRemoteConfigs: [[url: 'https://github.com/tdworowy/cicd-pipeline-train-schedule-git']]])
+                          userRemoteConfigs: [[url: 'https://github.com/tdworowy/cicd-pipeline-train-schedule-git.git']]])
             }
         }    
         stage('Build') {
