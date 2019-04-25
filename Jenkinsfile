@@ -7,7 +7,7 @@ pipeline {
                 cleanWs(patterns: [[pattern: 'cicd-pipeline-train-schedule-git/dist/*', type: 'INCLUDE']])
             }
         }
-        tage('Checkout') {
+        stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, 
                           extensions: [[$class: 'CleanBeforeCheckout']], submoduleCfg: [], 
