@@ -6,6 +6,7 @@ pipeline {
             steps {
                 cleanWs(patterns: [[pattern: 'dist/*', type: 'INCLUDE']])
             }
+        }    
         stage('Build') {
             steps {
                 echo 'Running build automation'
