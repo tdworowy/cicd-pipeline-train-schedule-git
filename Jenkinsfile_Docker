@@ -49,8 +49,10 @@ pipeline {
                             echo: 'caught error: $err'
                         }
                         sh "sshpass -p '$USERPASS' -v ssh -o StrictHostKeyChecking=no $USERNAME@$stage_ip \"docker run --restart always --name train-schedule -p 3000:8080 -d tdworowy/train-schedule:${env.BUILD_NUMBER}\""
-           }
-        }
+                    }
+                }
+            }    
+        }    
         stage('DeployToProduction') {
             when {
                 branch 'master'
