@@ -1,0 +1,15 @@
+sudo kubeadm reset <- reset configuration (best think to do when master IP changes)
+sudo kubeadm init <- init master
+kubeadm init --config kube-config-new.yml
+sudo kubeadm token create --print-join-command 
+
+kubectl describe nodes
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+
+
+
+setup 
+1. kubeadm init --config kube-config-new.yml
+   - do printed steps
+2. kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
