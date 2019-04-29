@@ -1,0 +1,5 @@
+sudo useradd deploy
+sudo passwd deploy 
+sudo groupadd docker
+sudo usermod -aG docker deploy
+sudo systemctl restart docker
