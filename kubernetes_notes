@@ -60,3 +60,20 @@ ______________________
 
 
 kubeadm config migrate --old-config kube-config.yml --new-config kube-config-new2.yml
+
+______________________
+full reset
+kubeadm reset
+sudo systemctl stop kubelet
+sudo systemctl stop docker
+sudo rm -rf /var/lib/cni/
+sudo rm -rf /var/lib/kubelet/*
+sudo rm -rf /etc/cni/
+sudo ifconfig cni0 down
+sudo ifconfig flannel.1 down
+sudo ifconfig docker0 down
+
+_______________________
+delete all pods
+kubectl delete --all pods --grace-period=0 --force 
+kubectl delete --all deploytmente 
