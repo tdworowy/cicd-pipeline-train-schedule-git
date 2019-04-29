@@ -14,6 +14,9 @@ setup
    - do printed steps
 2. kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 
+(it is possible to pull imagess befor init)
+kubeadm config images list --kubernetes-version=1.14.0
+kubeadm config images pull --kubernetes-version=1.14.0
 ______________________
 install metrisc-server
 git clone https://github.com/kubernetes-incubator/metrics-server.git
