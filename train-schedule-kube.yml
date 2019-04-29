@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: train-schedule-service
-   annotations:
+  annotations:
      prometheus.io/scrape: 'true'
 spec:
   type: NodePort
