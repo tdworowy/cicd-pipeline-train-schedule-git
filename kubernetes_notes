@@ -77,3 +77,17 @@ _______________________
 delete all pods
 kubectl delete --all pods --grace-period=0 --force 
 kubectl delete --all deploytmente 
+
+______________________
+Set up autoscaler
+
+cd ~/
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+cd metrics-server/
+kubectl create -f deploy/1.8+/
+kubectl get --raw /apis/metrics.k8s.io/
+
+______________________
+generate load for test
+1. kubectl run -i --tty load-generator --image=busybox /bin/sh
+2. while true; do wget -q -O- http://[Node IP]:8080/generate-cpu-load; done
